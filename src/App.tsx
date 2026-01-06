@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { RootGlobalStyle, Container } from "./globalStyle";
 import Header from "./components/Header";
+import Banner from "./components/Banner";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Container>
         <Header />
       </Container>
+      <Banner />
     </BrowserRouter>
   );
 }
