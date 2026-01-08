@@ -7,7 +7,7 @@ export default function Banner(){
     return(
         <BannerStyle>
             <Container>
-                <Tag/>
+                <Tag size="big">Destaques do dia</Tag>
             <Titulo>Marvel's Spider-Man: Miles Morales PS4 & PS5</Titulo>
             <PrecoBanner>
                 <s>De R$ 250,00 </s>
