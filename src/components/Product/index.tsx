@@ -1,17 +1,38 @@
 import { Container } from "../../globalStyle";
-import { Card, Description, Title } from "./style";
-import residente from '../../assets/images/resident.png';
-export default function Product() {
+import { Card, Description, Infos, Title } from "./style";
+import { Tag } from "../Tag";
+type Props = {
+  title: string;
+  category: string;
+  system: string;
+  description: string;
+  image: string;
+  infos: string[];
+};
+export default function Product({
+  title,
+  category,
+  description,
+  image,
+  infos,
+  system,
+}: Props) {
   return (
     <Container>
       <Card>
-        <img src={residente} alt="Jogo Resident Evil" />
-        <Title>Nome do jogo</Title>
+        <img src={image} alt={title}/>
+        <Infos>
+          {
+            infos.map((info)=>(
+              <Tag key={info}>{info}</Tag>
+            ))
+          }
+        </Infos>
+        <Title>{title}</Title>
+        <Tag>{category}</Tag>
+        <Tag>{system}</Tag>
         <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A corporis
-          consectetur possimus maiores aliquid ex neque quas provident
-          quibusdam. Reprehenderit dolores cum vitae nihil natus id hic!
-          Provident, aliquam eius?
+          {description}
         </Description>
       </Card>
     </Container>

@@ -24,6 +24,7 @@ export const RootGlobalStyle = createGlobalStyle`
         padding-top: 40px;
     }
     
+    
 `
 
 export const Container = styled.div`

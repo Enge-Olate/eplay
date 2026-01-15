@@ -1,7 +1,16 @@
 import styled from 'styled-components'
+import type{ Props } from '.'
+import { cores } from '../../globalStyle'
+import { Card } from '../Product/style'
 
-export const ContainerProductList = styled.section`
+export const ContainerProductList = styled.section<Props>`
   padding: 32px 0;
+  background-color: ${(props)=> props.background === 'black'? cores.preta: cores.cinza};
+
+  ${Card}{
+    background-color: ${(props)=> props.background === 'black'? cores.cinza:cores.preta};
+  }
+
 `
 
 export const List = styled.ul`
