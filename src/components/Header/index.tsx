@@ -13,7 +13,9 @@ export default function Header() {
         <nav>
           <ul>
             <li>
+              <Link to={"/categories"}>
               <a href="#">Categorias</a>
+              </Link>
             </li>
             <li>
               <a href="#">Novidades</a>
