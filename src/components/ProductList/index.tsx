@@ -1,7 +1,7 @@
 import { Container } from "../../globalStyle";
 import Product from "../Product";
 import { ContainerProductList, List, Title } from "./style";
-import resident from "../../assets/images/resident.png";
+import resident from "../../assets/resident.png";
 export type Props = {
   background: "gray" | "black";
   title: string;

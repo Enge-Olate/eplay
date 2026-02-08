@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { HeaderStyle } from "./style";
-import logo from "../../assets/images/logo.svg";
-import cart from "../../assets/images/carrinho.svg";
+import logo from "../../assets/logo.svg";
+import cart from "../../assets/carrinho.svg";
 
 export default function Header() {
   return (

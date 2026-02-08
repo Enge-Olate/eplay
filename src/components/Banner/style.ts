@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import banner from '../../assets/images/banner-homem-aranha.png';
 import { TagContainer } from "../Tag/style";
+import banner from "../../assets/banner-homem-aranha.png";
 
 
 export const BannerStyle = styled.div`
