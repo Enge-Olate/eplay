@@ -1,21 +1,31 @@
 import styled from "styled-components";
 import { cores } from "../../globalStyle";
 import { TagContainer } from "../Tag/style";
+import { Link } from "react-router-dom";
 
-export const Card = styled.div`
+export const Card = styled(Link)`
     background-color: ${cores.cinza};
     border-radius: 8px;
     padding: 8px;
     position: relative;
+    display: block;
+    color: ${cores.cinzClaro};
     ${TagContainer}{
         margin-right: 8px;
     }
+    img{
+        display: block;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
 `
 export const Title = styled.h3`
+    margin: 16px 0 8px 0;
+    display: block;
     font-size: 16px;
     font-weight: bold;
-    display: block;
-    margin: 16px 0 8px 0;
 `
 export const Description = styled.p`
     font-size: 14px;

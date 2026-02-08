@@ -13,7 +13,7 @@ export default function Banner(){
                 <s>De R$ 250,00 </s>
                 <span>por apenas R$ 99.90</span>
             </PrecoBanner>
-            <Button to="/produto"  title="Clique aqui para aproveitar esta oferta" type={'link'}/>
+            <Button title="Clique aqui para aproveitar esta oferta" type={'link'}/>
             </Container>
         </BannerStyle>
     );

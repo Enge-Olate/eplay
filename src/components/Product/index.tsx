@@ -8,6 +8,7 @@ type Props = {
   description: string;
   image: string;
   infos: string[];
+  id: number;
 };
 export default function Product({
   title,
@@ -16,10 +17,11 @@ export default function Product({
   image,
   infos,
   system,
+  id,
 }: Props) {
   return (
     <Container>
-      <Card>
+      <Card to={`/produto/${id}`}>
         <img src={image} alt={title}/>
         <Infos>
           {
