@@ -1,18 +1,30 @@
 import { ButtonBanner, ButtonLink } from "./style";
-type Props = {
-  type: "button" | "link"
-  title: string
-  to?: string
+export type Props = {
+  type: "button" | "link";
+  title: string;
+  to?: string;
+  onClick?: () => void;
+  children: string;
+  variant?: "primary" | "secondary";
 };
-export default function Button({ title, type, to }: Props) {
+export default function Button({
+  title,
+  type,
+  to,
+  children,
+  onClick,
+  variant = 'primary',
+}: Props) {
   if (type === "button") {
-   return (<ButtonBanner type={type} title={title}>Aproveitar</ButtonBanner>);
+    return (
+      <ButtonBanner variant={variant} type={type} title={title} onClick={onClick} >
+        {children}
+      </ButtonBanner>
+    );
   }
-  return(
-    <ButtonLink title={title} to={ to as string}>
-        Aproveitar
+  return (
+    <ButtonLink title={title} to={to as string}>
+      {children}
     </ButtonLink>
   );
-
-  
 }

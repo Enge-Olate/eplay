@@ -11,7 +11,11 @@
     "moduleResolution": "bundler",
     "strict": true,
     "types": ["vitest/globals"],
-    "lib": ["ESNext", "DOM"]
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"]
+    }
 
   }
 }

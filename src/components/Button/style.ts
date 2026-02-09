@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { cores } from "../../globalStyle";
-
-export const ButtonBanner = styled.button`
+import type{Props} from ".";
+export const ButtonBanner = styled.button<Props>`
     width: 110px;
     height: 35px;
     padding: 8px 16px;
     border-radius: 8px;
-    border: 2px solid ${cores.branca};
-    position: absolute;
+    border: 2px solid ${(props)=> props.variant === "primary"? cores.verde: 'transparent'};
     top: 461px;
     left: 1097px;
-    background-color: transparent;
+    background-color: ${(props)=> props.variant === "primary"? cores.verde: cores.branca};
     color: ${cores.branca};
     font-size: 16px;
     font-weight: bold;

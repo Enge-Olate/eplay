@@ -15,6 +15,7 @@ export default function ProductsList({ title, background, games }: Props) {
         <Title>{title}</Title>
         <List>
           <Product
+            id={3}
             category="Ação"
             description="teste"
             image={resident}
@@ -23,6 +24,7 @@ export default function ProductsList({ title, background, games }: Props) {
             system="Windows"
           />
           <Product
+            id={3}
             category="Ação"
             description="teste"
             image={resident}
@@ -31,6 +33,7 @@ export default function ProductsList({ title, background, games }: Props) {
             system="Windows"
           />
           <Product
+            id={3}
             category="Ação"
             description="teste"
             image={resident}
@@ -39,6 +42,7 @@ export default function ProductsList({ title, background, games }: Props) {
             system="Windows"
           />
           <Product
+            id={3}
             category="Ação"
             description="teste"
             image={resident}
