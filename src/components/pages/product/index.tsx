@@ -4,7 +4,8 @@ import Hero from "../../Hero";
 import Footer from "../../Footer";
 import { Container } from "../../../globalStyle";
 import Section from "../../Section";
-
+import Gallery from "../../Gallery";
+import aranha from "../../../assets/banner-homem-aranha.png";
 export function ProductGame() {
   const { id } = useParams();
   const [game, setGame] = useState();
@@ -49,9 +50,7 @@ export function ProductGame() {
         </p>
       </Section>
       <Section title="Galeria" background="black">
-        <>
-          <p>fotos</p>
-        </>
+        <Gallery defaultCover={aranha} name="zelda"/>
       </Section>
       <Footer />
     </>
