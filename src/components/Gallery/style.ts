@@ -39,3 +39,53 @@ export const Item = styled.li`
         }
     }
 `
+export const Modal = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    &.visible{
+        display: flex;
+    }
+    
+    .overlay{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.75);
+    }
+
+`
+export const ModalContent = styled.div`
+    max-width: 960px;
+    position: relative;
+    z-index: 1;
+    header{
+        margin-bottom: 34px;
+        display: flex;
+        justify-content: space-between;
+    }
+    h4{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    img{
+        cursor: pointer;
+    }
+    >img, iframe{
+        display: block;
+        max-width: 100%;
+    }
+    iframe{
+        width: auto;
+        height: 480px;
+    }
+
+`

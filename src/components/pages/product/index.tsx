@@ -5,7 +5,7 @@ import Footer from "../../Footer";
 import { Container } from "../../../globalStyle";
 import Section from "../../Section";
 import Gallery from "../../Gallery";
-import aranha from "../../../assets/banner-homem-aranha.png";
+import zelda from "../../../assets/zelda.png";
 export function ProductGame() {
   const { id } = useParams();
   const [game, setGame] = useState();
@@ -49,9 +49,7 @@ export function ProductGame() {
           <b>Aqui vai outro conteúdo!</b>
         </p>
       </Section>
-      <Section title="Galeria" background="black">
-        <Gallery defaultCover={aranha} name="zelda"/>
-      </Section>
+      <Gallery name="Demo" defaultCover={zelda}/>
       <Footer />
     </>
   );
