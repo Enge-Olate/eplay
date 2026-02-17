@@ -2,7 +2,7 @@ import { Container } from "../../globalStyle";
 import Product from "../Product";
 import { ContainerProductList, List, Title } from "./style";
 import type { Game } from "../pages/home";
-import { formatPrices } from "../../utils";
+import { formatPrices, getDescription } from "../../utils";
 export type Props = {
   background: "gray" | "black";
   title: string;
@@ -41,7 +41,7 @@ export default function ProductsList({id, title, background, games }: Props) {
                   infos={getGameTags(game)}
                   title={game.name}
                   system={game.details.system}
-                  description={game.description}
+                  description={getDescription(game.description)}
                 />
               </li>
               );

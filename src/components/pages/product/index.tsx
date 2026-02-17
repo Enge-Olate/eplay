@@ -5,19 +5,17 @@ import Footer from "../../Footer";
 import { Container } from "../../../globalStyle";
 import Section from "../../Section";
 import Gallery from "../../Gallery";
-import zelda from "../../../assets/zelda.png";
+import type { Game } from "../home";
 export function ProductGame() {
   const { id } = useParams();
-  const [game, setGame] = useState();
+  const [game, setGame] = useState<Game>();
   useEffect(() => {
-    if (id) {
-      fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
-        .then((res) => res.json())
-        .then((res) => setGame(res))
-        .catch((error) => console.log("Erro: ", error));
-    }
+    fetch(`https://api-ebac.vercel.app/api/eplay/jogos/${id}`)
+      .then((res) => res.json())
+      .then((res) => setGame(res));
   }, [id]);
-  if (!game && game) {
+  console.log("tamanho da descrição: "+game?.description.length);
+  if (!game) {
     return (
       <>
         <Container>
@@ -29,27 +27,26 @@ export function ProductGame() {
   }
   return (
     <>
-      <Hero />
+      <Hero game={game}/>
       <Section title="Sobre o jogo" background="black">
-        <p>
-          Hogwarts Legacy é um RPG de ação imersivo e de mundo aberto ambientado
-          no mundo introduzido pela primeira vez nos livros do Harry Potter.
-          Embarque em uma jornada por locais novos e familiares enquanto explora
-          e descubra animais fantásticos, personalize seu personagem e crie
-          poções, domine o lançamento de feitiços, aprimore talentos e torne-se
-          o bruxo que deseja ser. Experimente Hogwarts da década de 1800. Seu
-          personagem é um estudante com chave de um antigo segredo que ameaça
-          destruir o mundo bruxo. Faça aliados, lute contra os bruxos das trevas
-          e decida o destino do mundo bruxo. Seu legado é o que você faz dele.
-          Viva o Inesperado.
-        </p>
+        <p>{game.description}</p>
       </Section>
       <Section title="Mais detalhes" background="gray">
         <p>
-          <b>Aqui vai outro conteúdo!</b>
+          <b>Plataforma: </b>
+          {game.details.system}
+          <br/>
+          <b>Desenvolvedor: </b>
+          {game.details.developer}
+          <br/>
+          <b>Idioma: </b>
+          {game.details.languages.join(', ')}
+          <br/>
+          <b>Editora: </b>
+          {game.details.publisher}
         </p>
       </Section>
-      <Gallery name="Demo" defaultCover={zelda}/>
+      <Gallery items={game.media.gallery} name={game.name} defaultCover={game.media.cover} />
       <Footer />
     </>
   );

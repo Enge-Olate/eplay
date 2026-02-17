@@ -1,6 +1,7 @@
 import { Container } from "../../globalStyle";
 import { Card, Description, Infos, Title } from "./style";
 import { Tag } from "../Tag";
+import { getDescription } from "../../utils";
 type Props = {
   title: string;
   category: string;
@@ -19,12 +20,6 @@ export default function Product({
   system,
   id,
 }: Props) {
-  const getDescription = (text:string)=>{
-    if(text.length > 95){
-      return text.slice(0, 92)+'...';
-    }
-    return text;
-  };
   return (
     <Container>
       <Card to={`/produto/${id}`}>

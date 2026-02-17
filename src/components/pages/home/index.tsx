@@ -21,7 +21,7 @@ export type Game = {
     system: string;
     developer: string;
     publisher: string;
-    language: string[];
+    languages: string[];
   };
   media: {
     thumbnail: string;
@@ -43,7 +43,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Banner />
+      <Banner/>
       <ProductsList games={promocoes} title="Promoções" background="gray" />
       <ProductsList games={embreve} title="Em breve" background="black" />
       <Footer />

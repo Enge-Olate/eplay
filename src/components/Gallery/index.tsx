@@ -1,41 +1,39 @@
 import { Container } from "../../globalStyle";
 import { useState } from "react";
-import residente from "../../assets/resident.png";
 import zoom from "../../assets/images/zoom.png";
 import play from "../../assets/images/play.png";
 import fechar from "../../assets/images/fechar.png";
-import aranha from "../../assets/banner-homem-aranha.png";
-import starWars from "../../assets/star_wars.png";
 import { Items, Item, Action, Modal, ModalContent } from "./style";
 import Section from "../Section";
 import type {GalleryItem} from "../pages/home";
 
-const mock: GalleryItem[] = [
-  {
-    type: "image",
-    url: starWars,
-  },
-  {
-    type: "image",
-    url: aranha,
-  },
-  {
-    type: "image",
-    url: residente,
-  },
-  {
-    type: "video",
-    url: "https://www.youtube.com/embed/f8ARKTrkdJc?si=fBsssE-F3Ng4zvfK",
-  },
-];
+// const mock: GalleryItem[] = [
+//   {
+//     type: "image",
+//     url: starWars,
+//   },
+//   {
+//     type: "image",
+//     url: aranha,
+//   },
+//   {
+//     type: "image",
+//     url: residente,
+//   },
+//   {
+//     type: "video",
+//     url: "https://www.youtube.com/embed/f8ARKTrkdJc?si=fBsssE-F3Ng4zvfK",
+//   },
+// ];
 type Props = {
   defaultCover: string;
   name: string;
+  items:GalleryItem[];
 };
 interface ModalState extends GalleryItem {
   isVisible: boolean;
 }
-export default function Gallery({ defaultCover, name }: Props) {
+export default function Gallery({ defaultCover, name, items }: Props) {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     type: "image",
@@ -61,7 +59,7 @@ export default function Gallery({ defaultCover, name }: Props) {
     <>
       <Section background="black" title="Galeria">
         <Items>
-          {mock.map((media, index) => {
+          {items.map((media, index) => {
             return (
               <Item
                 key={media.url}

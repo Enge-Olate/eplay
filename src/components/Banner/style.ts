@@ -9,10 +9,18 @@ export const BannerStyle = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
     ${TagContainer}{
         position: absolute;
         top: 32px;
+    }
+    &::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        background-color: rgba(0,0,0,.7);
     }
 `
 export const Titulo = styled.h2`
