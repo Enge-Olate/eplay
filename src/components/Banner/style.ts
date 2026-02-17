@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { TagContainer } from "../Tag/style";
-import banner from "../../assets/banner-homem-aranha.png";
 
 
 export const BannerStyle = styled.div`
     width: 100%;
     height: 600px;
     display: block;
-    background-image: url(${banner});
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

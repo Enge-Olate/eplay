@@ -19,6 +19,12 @@ export default function Product({
   system,
   id,
 }: Props) {
+  const getDescription = (text:string)=>{
+    if(text.length > 95){
+      return text.slice(0, 92)+'...';
+    }
+    return text;
+  };
   return (
     <Container>
       <Card to={`/produto/${id}`}>
@@ -34,7 +40,7 @@ export default function Product({
         <Tag>{category}</Tag>
         <Tag>{system}</Tag>
         <Description>
-          {description}
+          {getDescription(description)}
         </Description>
       </Card>
     </Container>

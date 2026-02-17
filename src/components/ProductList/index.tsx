@@ -1,55 +1,52 @@
 import { Container } from "../../globalStyle";
 import Product from "../Product";
 import { ContainerProductList, List, Title } from "./style";
-import resident from "../../assets/resident.png";
 import type { Game } from "../pages/home";
+import { formatPrices } from "../../utils";
 export type Props = {
   background: "gray" | "black";
   title: string;
-  games: Game[]
+  games?: Game[];
+  id?:string;
 };
-export default function ProductsList({ title, background, games }: Props) {
+
+export default function ProductsList({id, title, background, games }: Props) {
+  const getGameTags = (game: Game) => {
+    const tags = [];
+    if (game.release_date) {
+      tags.push(game.release_date);
+    }
+    if (game.prices.discount) {
+      tags.push(`${game.prices.discount} % OFF`);
+    }
+    if (game.prices.current) {
+      tags.push(formatPrices(game.prices.current));
+    }
+    return tags;
+  };
+
   return (
-    <ContainerProductList title={title} background={background} games={games}>
+    <ContainerProductList id={id} title={title} background={background} games={games}>
       <Container>
         <Title>{title}</Title>
         <List>
-          <Product
-            id={3}
-            category="Ação"
-            description="teste"
-            image={resident}
-            infos={["-10%", "R$ 150"]}
-            title="Resident Evil"
-            system="Windows"
-          />
-          <Product
-            id={3}
-            category="Ação"
-            description="teste"
-            image={resident}
-            infos={["-10%", "R$ 150"]}
-            title="Resident Evil"
-            system="Windows"
-          />
-          <Product
-            id={3}
-            category="Ação"
-            description="teste"
-            image={resident}
-            infos={["-10%", "R$ 150"]}
-            title="Resident Evil"
-            system="Windows"
-          />
-          <Product
-            id={3}
-            category="Ação"
-            description="teste"
-            image={resident}
-            infos={["-10%", "R$ 150"]}
-            title="Resident Evil"
-            system="Windows"
-          />
+          {
+            games && games.map((game)=>{
+              return(
+                <li key={game.id}>
+                <Product
+                  id={game.id}
+                  category={game.details.category}
+                  image={game.media.thumbnail}
+                  infos={getGameTags(game)}
+                  title={game.name}
+                  system={game.details.system}
+                  description={game.description}
+                />
+              </li>
+              );
+            })
+          }
         </List>
       </Container>
     </ContainerProductList>

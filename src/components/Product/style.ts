@@ -4,12 +4,13 @@ import { TagContainer } from "../Tag/style";
 import { Link } from "react-router-dom";
 
 export const Card = styled(Link)`
+    height: 100%;
     background-color: ${cores.cinza};
     border-radius: 8px;
     padding: 8px;
     position: relative;
     display: block;
-    color: ${cores.cinzClaro};
+    color: ${cores.branca};
     ${TagContainer}{
         margin-right: 8px;
     }
@@ -22,7 +23,8 @@ export const Card = styled(Link)`
     
 `
 export const Title = styled.h3`
-    margin: 16px 0 8px 0;
+    margin-top:16px;
+    margin-bottom: 8px;
     display: block;
     font-size: 16px;
     font-weight: bold;
