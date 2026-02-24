@@ -1,13 +1,19 @@
 import { Container } from "../../globalStyle";
+import { UseAppDispatch } from "../../hooks/appDispacth";
+import { add } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
 import Button from "../Button";
-import type { Game } from "../pages/home";
+import type { Game } from "../../pages/home";
 import { Tag } from "../Tag";
 import { BannerHero, Infos } from "./style";
 type Props={
   game:Game;
 };
 export default function Hero({game}:Props) {
+  const dispacth = UseAppDispatch();
+  const handleAdd =()=>{
+    dispacth(add(game))
+  }
   return (
     <BannerHero style={{ backgroundImage: `url(${game.media.cover})` }}>
       <Container>
@@ -27,6 +33,7 @@ export default function Hero({game}:Props) {
             <p>{game.details.developer}</p>
             {game.prices.current &&(
               <Button
+              onClick={()=> handleAdd}
               type="button"
               variant="primary"
               title="Clique aqui para adicionar este jogo ao carrinho."

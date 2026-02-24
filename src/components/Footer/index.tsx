@@ -9,22 +9,22 @@ export default function Footer() {
           <DivSection variant="large">
           <h4>Categorias</h4>
           <ul>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
+            <li><a href="#RPF">RPG</a></li>
+            <li><a href="#Ação">Ação</a></li>
+            <li><a href="#Aventura">Aventura</a></li>
+            <li><a href="#Esportes">Esportes</a></li>
+            <li><a href="#Simulação">Simulação</a></li>
+            <li><a href="#Estratégia">Estratégia</a></li>
+            <li><a href="#FPS">FPS</a></li>
           </ul>
         </DivSection>
         <DivSection variant="small">
           <h4>Acesso rápido</h4>
           <ul>
-            <li>Ação</li>
-            <li>Ação</li>
-            <li>Ação</li>
+            <li><a href="#Novidades">Novidades</a></li>
+            <li><a href="#Promoções">Promoções</a></li>
+            <li><a href="#Em breve">Em breve</a></li>
+            
           </ul>
         </DivSection>
         </StackDivs>

@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
-import { Container } from "../../globalStyle";
+ import { Container } from "../../globalStyle";
 import Button from "../Button";
 import { Tag } from "../Tag";
 import { BannerStyle, PrecoBanner, Titulo } from "./style";
-import type { Game } from "../pages/home";
 import { formatPrices } from "../../utils";
+import { useGetGameQuery } from "../../services/api";
 export default function Banner() {
-  const [game, setGame] = useState<Game>();
-  useEffect(() => {
-    fetch("https://api-ebac.vercel.app/api/eplay/destaque")
-      .then((res) => res.json())
-      .then((res) => setGame(res));
-  }, []);
+  const {data: game}=  useGetGameQuery()
+
   if (!game) {
     return (
       <Container>

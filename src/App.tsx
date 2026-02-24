@@ -1,17 +1,21 @@
 import { BrowserRouter } from "react-router-dom";
 import { RootGlobalStyle, Container } from "./globalStyle";
 import Header from "./components/Header";
-import Paths from "./components/pages/routes";
+import Paths from "./pages/routes";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 function App() {
   return (
-    <BrowserRouter>
-      <RootGlobalStyle />
-      <Container>
-        <Header />
-      </Container>
-      <Paths/>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <RootGlobalStyle />
+        <Container>
+          <Header />
+        </Container>
+        <Paths />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

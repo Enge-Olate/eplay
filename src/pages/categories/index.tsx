@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Footer from "../../Footer";
-import ProductsList from "../../ProductList";
+import Footer from "../../components/Footer";
+import ProductsList from "../../components/ProductList";
 import type { Game } from "../home";
 export default function Categories() {
   const [gamesAcao, setGamesAcao] = useState<Game[]>([]);

@@ -1,7 +1,7 @@
 import { Container } from "../../globalStyle";
 import Product from "../Product";
 import { ContainerProductList, List, Title } from "./style";
-import type { Game } from "../pages/home";
+import type { Game } from "../../pages/home";
 import { formatPrices, getDescription } from "../../utils";
 export type Props = {
   background: "gray" | "black";

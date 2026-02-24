@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Banner from "../../Banner";
-import Footer from "../../Footer";
-import ProductsList from "../../ProductList";
+import Banner from "../../components/Banner";
+import Footer from "../../components/Footer";
+import ProductsList from "../../components/ProductList";
 export interface GalleryItem {
   type: "image" | "video";
   url: string;

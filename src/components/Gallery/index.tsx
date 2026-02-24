@@ -5,26 +5,9 @@ import play from "../../assets/images/play.png";
 import fechar from "../../assets/images/fechar.png";
 import { Items, Item, Action, Modal, ModalContent } from "./style";
 import Section from "../Section";
-import type {GalleryItem} from "../pages/home";
+import type {GalleryItem} from "../../pages/home";
 
-// const mock: GalleryItem[] = [
-//   {
-//     type: "image",
-//     url: starWars,
-//   },
-//   {
-//     type: "image",
-//     url: aranha,
-//   },
-//   {
-//     type: "image",
-//     url: residente,
-//   },
-//   {
-//     type: "video",
-//     url: "https://www.youtube.com/embed/f8ARKTrkdJc?si=fBsssE-F3Ng4zvfK",
-//   },
-// ];
+
 type Props = {
   defaultCover: string;
   name: string;
