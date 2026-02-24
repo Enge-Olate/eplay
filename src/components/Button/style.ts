@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { cores } from "../../globalStyle";
+import { breakPoints, cores } from "../../globalStyle";
 import type{Props} from ".";
 export const ButtonBanner = styled.button<Props>`
     width: 110px;
@@ -14,11 +14,14 @@ export const ButtonBanner = styled.button<Props>`
     color: ${cores.branca};
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
 `
 export const ButtonLink = styled(Link)`
     width: 110px;
     height: 35px;
-    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 8px;
     border: 2px solid ${cores.branca};
     position: absolute;
@@ -29,5 +32,23 @@ export const ButtonLink = styled(Link)`
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9de898e (Commit 4: aplicando responsividade.)
+    @media(max-width: ${breakPoints.tablet}){
+        top: 520px;
+        left: 0;
+    }
+    @media(max-width: ${breakPoints.desktop}){
+        top: 520px;
+        left: 0;
+    }
+<<<<<<< HEAD
+=======
+>>>>>>> 2c77a71 (Commit 1: UI ok.)
+=======
+>>>>>>> 9de898e (Commit 4: aplicando responsividade.)
 
 `

@@ -13,3 +13,5 @@ export const getDescription = (text: string) => {
   }
   return text;
 };
+
+export const actualYear = new Date();

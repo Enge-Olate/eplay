@@ -11,9 +11,12 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.11.0",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "^0.0.0",
     "styled-components": "^6.1.19"
   },
@@ -24,9 +27,18 @@
     "@types/node": "^24.10.4",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@types/react-router-hash-link": "^2.4.9",
     "@types/styled-components": "^5.1.36",
     "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "eslint": "^9.39.3",
+=======
+    "eslint": "^10.0.2",
+>>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
+=======
+    "eslint": "^9.39.3",
+>>>>>>> a987dbf (Commit 3: instalando dependências do Hashlink e atribuindo rotas ao componente Footer.)
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { cores } from "../../globalStyle";
+import { breakPoints, cores } from "../../globalStyle";
 interface widthDiv{
     variant?: 'large' | 'small' | 'custom';
     widthValue?: string;
@@ -7,8 +7,8 @@ interface widthDiv{
 
 function handleWidth(variant: string | undefined, widthValue?: string){
     switch (variant){
-        case 'small': return '213px';
-        case 'large': return '375px';
+        case 'small': return '242px';
+        case 'large': return '404px';
         case 'custom': return widthValue || '100%';
         default: return '500px'; 
     }
@@ -21,6 +21,7 @@ export const FooterStyle = styled.footer`
     p{
         margin-top: 80px;
     }
+    
 `
 export const StackDivs = styled.div`
     display: flex;
@@ -38,10 +39,18 @@ export const DivSection = styled.div<widthDiv>`
     }
     ul{
         display: flex;
+        
     }
     li{
         margin-right: 8px;
         color: ${cores.cinzClaro};
+        a{
+            color: ${cores.cinzClaro};
+            font-size: 14px;
+        }
     }
+    @media(max-width:${breakPoints.tablet}){
+            width: auto;
+        }
 
 `

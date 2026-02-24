@@ -5,26 +5,17 @@ import play from "../../assets/images/play.png";
 import fechar from "../../assets/images/fechar.png";
 import { Items, Item, Action, Modal, ModalContent } from "./style";
 import Section from "../Section";
-import type {GalleryItem} from "../pages/home";
+<<<<<<< HEAD
+<<<<<<< HEAD
+import type {GalleryItem} from "../../types";
+=======
+import type {GalleryItem} from "../../pages/home";
+>>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
+=======
+import type {GalleryItem} from "../../types";
+>>>>>>> a987dbf (Commit 3: instalando dependências do Hashlink e atribuindo rotas ao componente Footer.)
 
-// const mock: GalleryItem[] = [
-//   {
-//     type: "image",
-//     url: starWars,
-//   },
-//   {
-//     type: "image",
-//     url: aranha,
-//   },
-//   {
-//     type: "image",
-//     url: residente,
-//   },
-//   {
-//     type: "video",
-//     url: "https://www.youtube.com/embed/f8ARKTrkdJc?si=fBsssE-F3Ng4zvfK",
-//   },
-// ];
+
 type Props = {
   defaultCover: string;
   name: string;
