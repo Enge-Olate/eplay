@@ -32,7 +32,7 @@ export const gameApi = createApi({
             query: () => 'luta'
         }),
         getGameId: builder.query<Game, string>({
-            query: (id)=> `jogos/${id}`
+            query: (id) => `jogos/${id}`
         })
     })
 })

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
 import ProductsList from "../../components/ProductList";
+import { useGetPromoQuery } from "../../services/api";
 export interface GalleryItem {
   type: "image" | "video";
   url: string;
@@ -30,22 +30,13 @@ export type Game = {
   };
 };
 export default function Home() {
-  const [promocoes, setPromocoes] = useState<Game[]>([]);
-  const [embreve, setEmBreve] = useState<Game[]>([]);
-  useEffect(() => {
-    fetch("https://api-ebac.vercel.app/api/eplay/promocoes")
-      .then((res) => res.json())
-      .then((res) => setPromocoes(res));
+  const {data: games} = useGetPromoQuery();
 
-    fetch("https://api-ebac.vercel.app/api/eplay/em-breve")
-      .then((res) => res.json())
-      .then((res) => setEmBreve(res));
-  }, []);
   return (
     <>
       <Banner/>
-      <ProductsList games={promocoes} title="Promoções" background="gray" />
-      <ProductsList games={embreve} title="Em breve" background="black" />
+      <ProductsList games={games} title="Promoções" background="gray" />
+      <ProductsList games={games} title="Em breve" background="black" />
       <Footer />
     </>
   );
