@@ -30,7 +30,7 @@ export default function Header() {
         </nav>
       </div>
       <ul>
-        <li>{items} - Produto(s)</li>
+        <li>{items.length} - Produto(s)</li>
         <li>
           <a href="#">
             <img src={cart} alt="Carrinho de compras" />

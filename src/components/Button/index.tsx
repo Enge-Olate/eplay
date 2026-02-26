@@ -23,7 +23,7 @@ export default function Button({
     );
   }
   return (
-    <ButtonLink title={title} to={to as string}>
+    <ButtonLink title={title} to={to as string} type={type}>
       {children}
     </ButtonLink>
   );

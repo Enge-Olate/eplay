@@ -1,9 +1,9 @@
  import { Container } from "../../globalStyle";
-import Button from "../Button";
 import { Tag } from "../Tag";
 import { BannerStyle, PrecoBanner, Titulo } from "./style";
 import { formatPrices } from "../../utils";
 import { useGetGameQuery } from "../../services/api";
+import { ButtonLink } from "../Button/style";
 export default function Banner() {
   const {data: game}=  useGetGameQuery()
 
@@ -20,16 +20,16 @@ export default function Banner() {
         <Tag size="big">Destaques do dia</Tag>
         <Titulo>{game.name}</Titulo>
         <PrecoBanner>
-          <s>{formatPrices(game.prices.old)} </s>
-          <span>{formatPrices(game.prices.current)}</span>
+          <s>De {formatPrices(game.prices.old)} </s>
+          <span>por apenas {formatPrices(game.prices.current)}</span>
         </PrecoBanner>
-        <Button
+        <ButtonLink
           title="Clique aqui para aproveitar esta oferta"
-          type={"link"}
+          type="link"
           to={`/produto/${game.id}`}
         >
           Aproveitar
-        </Button>
+        </ButtonLink>
       </Container>
     </BannerStyle>
   );

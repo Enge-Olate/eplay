@@ -39,8 +39,8 @@ export const BannerHero = styled.div`
 `
 export const Infos = styled.div`
   padding: 16px;
+  width: 283px;
   background-color: ${cores.preta};
-  max-width: 290px;
   font-weight: bold;
   
   h2 {
@@ -56,8 +56,8 @@ export const Infos = styled.div`
     }
   }
   button{
-    padding: 8px;
-    width: 189px;
+    padding: 4px;
+    width: 211px;
     height: 35px;
   }
 `

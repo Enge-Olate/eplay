@@ -1,16 +1,16 @@
 import { Container } from "../../globalStyle";
-import { UseAppDispatch } from "../../hooks/appDispacth";
+import { useAppDispatch } from "../../hooks/appDispacth";
 import { add } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
-import Button from "../Button";
 import type { Game } from "../../pages/home";
 import { Tag } from "../Tag";
 import { BannerHero, Infos } from "./style";
+import { ButtonBanner } from "../Button/style";
 type Props={
   game:Game;
 };
 export default function Hero({game}:Props) {
-  const dispacth = UseAppDispatch();
+  const dispacth = useAppDispatch();
   const handleAdd =()=>{
     dispacth(add(game))
   }
@@ -32,14 +32,14 @@ export default function Hero({game}:Props) {
             </p>
             <p>{game.details.developer}</p>
             {game.prices.current &&(
-              <Button
-              onClick={()=> handleAdd}
+              <ButtonBanner
+              onClick={()=> handleAdd()}
               type="button"
               variant="primary"
               title="Clique aqui para adicionar este jogo ao carrinho."
             >
               Adicionar ao carrinho
-            </Button>
+            </ButtonBanner>
             )}
           </Infos>
         </div>

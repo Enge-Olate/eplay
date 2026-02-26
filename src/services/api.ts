@@ -36,5 +36,5 @@ export const gameApi = createApi({
         })
     })
 })
-export const { useGetGameIdQuery, useGetGameQuery, useGetPromoQuery, useGetSoonQuery, useGetActionGamesQuery, useGetEsportsGamesQuery, useGetFightGamesQuery, useGetRpgGamesQuery, useGetSimulacaoGamesQuery } = gameApi;
+export const { useGetGameIdQuery, useGetGameQuery, useGetPromoQuery, useGetSoonQuery, useGetActionGamesQuery, useGetEsportsGamesQuery, useGetFightGamesQuery, useGetRpgGamesQuery, useGetSimulacaoGamesQuery, useLazyGetSoonQuery } = gameApi;
 export default gameApi;

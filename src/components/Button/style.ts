@@ -18,7 +18,9 @@ export const ButtonBanner = styled.button<Props>`
 export const ButtonLink = styled(Link)`
     width: 110px;
     height: 35px;
-    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 8px;
     border: 2px solid ${cores.branca};
     position: absolute;

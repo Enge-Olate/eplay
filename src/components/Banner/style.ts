@@ -31,13 +31,21 @@ export const Titulo = styled.h2`
     position: absolute;
     top: 340px;
 `
-export const PrecoBanner = styled.p`
-    width:232px;
+export const PrecoBanner = styled.div`
+    width: fit-content;
     height: 56px;
+    display: flex;
+    flex-direction: column;
     margin-top: 24px;
     font-size: 24px;
     font-weight: bold;
     position: absolute;
+    line-height: 100%;
     top: 424px;
+    s{
+        text-decoration: line-through;
+        opacity: .7;
+    }
+    
 
 `

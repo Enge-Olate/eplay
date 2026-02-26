@@ -12,7 +12,12 @@ const cartSlice = createSlice({
     initialState,
     reducers:{
         add:(state, action: PayloadAction<Game>)=>{
-            state.items.push(action.payload);
+            const idGame = state.items.find((item)=> item.id === action.payload.id);
+            if(!idGame){
+                state.items.push(action.payload);
+            }else{
+                alert("Jogo já adicionado!");
+            }
         }
     }
 
