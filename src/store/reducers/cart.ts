@@ -18,9 +18,13 @@ const cartSlice = createSlice({
             }else{
                 alert("Jogo já adicionado!");
             }
+        },
+        remove:(state, action: PayloadAction<number>)=>{
+            state.items.filter((item)=> item.id !== action.payload);
+            
         }
     }
 
 });
-export const {add} = cartSlice.actions;
+export const {add, remove} = cartSlice.actions;
 export default cartSlice.reducer;

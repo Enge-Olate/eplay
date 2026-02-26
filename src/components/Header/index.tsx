@@ -1,11 +1,11 @@
-import { UseAppSelector } from "../../hooks/appSelector";
+import { useAppSelector } from "../../hooks/appSelector";
 import { Link } from "react-router-dom";
 import { HeaderStyle } from "./style";
 import logo from "../../assets/logo.svg";
 import cart from "../../assets/carrinho.svg";
 
 export default function Header() {
-    const items =UseAppSelector((state)=> state.cart.items);
+    const items =useAppSelector((state)=> state.cart.items);
   
   return (
     <HeaderStyle>
