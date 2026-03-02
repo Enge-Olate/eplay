@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Paths from "./pages/routes";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Header />
         </Container>
         <Paths />
+        <Cart/>
       </BrowserRouter>
     </Provider>
   );

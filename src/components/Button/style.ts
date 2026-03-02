@@ -14,6 +14,7 @@ export const ButtonBanner = styled.button<Props>`
     color: ${cores.branca};
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
 `
 export const ButtonLink = styled(Link)`
     width: 110px;
@@ -31,5 +32,6 @@ export const ButtonLink = styled(Link)`
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 
 `
