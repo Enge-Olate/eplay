@@ -3,10 +3,18 @@ import { Link } from "react-router-dom";
 import { HeaderStyle } from "./style";
 import logo from "../../assets/logo.svg";
 import cart from "../../assets/carrinho.svg";
-
-export default function Header() {
-    const items =useAppSelector((state)=> state.cart.items);
-  
+import type { RootState } from "../../store";
+import { useAppDispatch } from "../../hooks/appDispacth";
+import { open } from "../../store/reducers/cart";
+type Props={
+  title: string;
+}
+export default function Header({title = "clique aqui para ver o carrinho!"}: Props) {
+    const {items} =useAppSelector((state: RootState)=> state.cart);
+    const dispatch = useAppDispatch();
+    const openCart = ()=>{
+      dispatch(open());
+    }
   return (
     <HeaderStyle>
       <div>
@@ -32,7 +40,7 @@ export default function Header() {
       <ul>
         <li>{items.length} - Produto(s)</li>
         <li>
-          <a href="#">
+          <a onClick={openCart} title={title}>
             <img src={cart} alt="Carrinho de compras" />
           </a>
         </li>

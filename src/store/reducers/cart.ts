@@ -2,10 +2,12 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Game } from "../../pages/home";
 interface cartState{
     items: Game[];
+    isOpen: boolean;
 }
 
 const initialState: cartState={
-    items:[]
+    items:[],
+    isOpen: false,
 }
 const cartSlice = createSlice({
     name: 'cart',
@@ -20,11 +22,17 @@ const cartSlice = createSlice({
             }
         },
         remove:(state, action: PayloadAction<number>)=>{
-            state.items.filter((item)=> item.id !== action.payload);
+            state.items = state.items.filter((item)=> item.id !== action.payload);
             
+        },
+        open:(state)=>{
+            state.isOpen = true;
+        },
+        close: (state)=>{
+            state.isOpen=false;
         }
     }
 
 });
-export const {add, remove} = cartSlice.actions;
+export const {add, remove, open, close} = cartSlice.actions;
 export default cartSlice.reducer;

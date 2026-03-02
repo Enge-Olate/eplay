@@ -26,5 +26,6 @@ export  const HeaderStyle = styled.header`
     a{
         color: ${cores.branca};
         text-decoration: none;
+        cursor: pointer;
     }    
 `

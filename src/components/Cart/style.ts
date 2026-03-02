@@ -1,20 +1,37 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { cores } from "../../globalStyle";
 import { TagContainer } from "../Tag/style";
 import excluir from "../../assets/images/fechar.png";
-
-export const Overlay = styled.div`
+const fadeIn = keyframes`
+    from{opacity: 0;}
+    to{opacity: 1;}
+`
+export const CartContainer = styled.div`
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: flex-end;
     position: fixed;
     top:0;
     left: 0;
     z-index: 1;
-    background-color: rgba(0,0,0,.7);
+    animation: .3s ease-out;
 
+    &.is-open{
+        display: flex;
+        animation: ${fadeIn} .3s ease-in-out forwards ;
+    }    
 
+`
+
+export const Overlay = styled.div`
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: ${cores.preta};
+    opacity: .7;
 `
 export const Sidebar = styled.aside`
     padding: 40px 16px 0 16px;
@@ -23,6 +40,7 @@ export const Sidebar = styled.aside`
     height: 100Vh;
     display: flex;
     flex-direction: column;
+    z-index: 1;
     background-color: ${cores.cinza};
     ul{
         max-width: 328px;
@@ -58,6 +76,7 @@ export const CartProduct=styled.li`
         top: 8px;
         right: 0;
         background-color: transparent;
+        cursor: pointer;
     }
 
 `

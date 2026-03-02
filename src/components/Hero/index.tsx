@@ -1,6 +1,6 @@
 import { Container } from "../../globalStyle";
 import { useAppDispatch } from "../../hooks/appDispacth";
-import { add } from "../../store/reducers/cart";
+import { add, open } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
 import type { Game } from "../../pages/home";
 import { Tag } from "../Tag";
@@ -13,6 +13,7 @@ export default function Hero({game}:Props) {
   const dispacth = useAppDispatch();
   const handleAdd =()=>{
     dispacth(add(game))
+    dispacth(open())
   }
   return (
     <BannerHero style={{ backgroundImage: `url(${game.media.cover})` }}>
