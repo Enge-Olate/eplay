@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { cores } from "../../globalStyle";
+import { breakPoints, cores } from "../../globalStyle";
 interface widthDiv{
     variant?: 'large' | 'small' | 'custom';
     widthValue?: string;
@@ -39,6 +39,7 @@ export const DivSection = styled.div<widthDiv>`
     }
     ul{
         display: flex;
+        
     }
     li{
         margin-right: 8px;
@@ -48,5 +49,8 @@ export const DivSection = styled.div<widthDiv>`
             font-size: 14px;
         }
     }
+    @media(max-width:${breakPoints.tablet}){
+            width: auto;
+        }
 
 `

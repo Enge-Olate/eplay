@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { cores } from "../../globalStyle";
+import { breakPoints, cores } from "../../globalStyle";
 import type{Props} from ".";
 export const ButtonBanner = styled.button<Props>`
     width: 110px;
@@ -33,5 +33,13 @@ export const ButtonLink = styled(Link)`
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
+    @media(max-width: ${breakPoints.tablet}){
+        top: 520px;
+        left: 0;
+    }
+    @media(max-width: ${breakPoints.desktop}){
+        top: 520px;
+        left: 0;
+    }
 
 `

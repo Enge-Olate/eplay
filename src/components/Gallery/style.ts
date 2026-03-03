@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import { cores } from "../../globalStyle";
+import { breakPoints, cores } from "../../globalStyle";
 
 export const Items = styled.ul`
     display: grid;
     grid-template-columns: repeat(4, .1fr);
     column-gap: 16px;
+    @media(max-width: ${breakPoints.tablet}){
+        grid-template-columns: repeat(2, .1fr);
+        gap: 16px;
+        
+    }
     
-    `
+`
 export const Action= styled.div`
     position: absolute;
     display: flex;
@@ -25,12 +30,20 @@ export const Item = styled.li`
     width: 150px;
     height: 150px;
     position: relative;
+    @media(max-width: ${breakPoints.tablet}){
+        width: 145px;
+        height: 145px;
+    }
     > img{
         width: 100%;
         height: 100%;
         border: 2px solid ${cores.branca};
         border-radius: 8px;
         object-fit: cover;
+        @media(max-width: ${breakPoints.tablet}){
+            width: 100%;
+
+        }
     }
     &:hover{
         ${Action}{
@@ -38,6 +51,7 @@ export const Item = styled.li`
             transition: opacity 0.5s ease;
         }
     }
+
 `
 export const Modal = styled.div`
     position: fixed;
@@ -51,6 +65,7 @@ export const Modal = styled.div`
     z-index: 1;
     &.visible{
         display: flex;
+        
     }
     
     .overlay{
@@ -67,10 +82,15 @@ export const ModalContent = styled.div`
     max-width: 960px;
     position: relative;
     z-index: 1;
+    @media(max-width: ${breakPoints.tablet}){
+        max-width: 300px;
+        width: 100%;
+    }
     header{
         margin-bottom: 34px;
         display: flex;
         justify-content: space-between;
+        
     }
     h4{
         font-weight: bold;
@@ -78,11 +98,13 @@ export const ModalContent = styled.div`
     }
     img{
         cursor: pointer;
+        
     }
     >img, iframe{
         display: block;
         max-width: 100%;
         width: 100%;
+        
     }
     iframe{
         width: 100%;
