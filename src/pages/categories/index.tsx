@@ -11,11 +11,11 @@ export default function Categories() {
   
   return (
     <>
-      <ProductsList games={gamesAction} title="Ação" background="black" />
-      <ProductsList games={gamesRpg} title="RPG" background="gray" />
-      <ProductsList games={gamesSimulation} title="Simulação" background="black" />
-      <ProductsList games={gamesFight} title="Luta" background="gray" />
-      <ProductsList games={gamesEsports} title="Esportes" background="black" />
+      <ProductsList id="acao" games={gamesAction} title="Ação" background="black" />
+      <ProductsList id="rpg" games={gamesRpg} title="RPG" background="gray" />
+      <ProductsList id="simulacao" games={gamesSimulation} title="Simulação" background="black" />
+      <ProductsList id="luta" games={gamesFight} title="Luta" background="gray" />
+      <ProductsList id="esportes" games={gamesEsports} title="Esportes" background="black" />
       <Footer />
     </>
   );

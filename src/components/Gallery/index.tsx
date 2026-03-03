@@ -5,7 +5,7 @@ import play from "../../assets/images/play.png";
 import fechar from "../../assets/images/fechar.png";
 import { Items, Item, Action, Modal, ModalContent } from "./style";
 import Section from "../Section";
-import type {GalleryItem} from "../../pages/home";
+import type {GalleryItem} from "../../types";
 
 
 type Props = {

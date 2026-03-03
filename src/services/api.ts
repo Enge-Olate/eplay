@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Game } from "../pages/home";
+import type { Game } from "../types";
 
 
 export const gameApi = createApi({
