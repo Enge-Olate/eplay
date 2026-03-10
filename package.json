@@ -30,15 +30,7 @@
     "@types/react-router-hash-link": "^2.4.9",
     "@types/styled-components": "^5.1.36",
     "@vitejs/plugin-react": "^5.1.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "eslint": "^9.39.3",
-=======
-    "eslint": "^10.0.2",
->>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
-=======
-    "eslint": "^9.39.3",
->>>>>>> a987dbf (Commit 3: instalando dependências do Hashlink e atribuindo rotas ao componente Footer.)
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
