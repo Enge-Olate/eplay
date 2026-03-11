@@ -1,36 +1,9 @@
  import { Container } from "../../globalStyle";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
-import Button from "../Button";
->>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
-=======
->>>>>>> d97e153 (Commit 3: adicionando produtos ao carrinho.)
-=======
->>>>>>> d97e153 (Commit 3: adicionando produtos ao carrinho.)
 import { Tag } from "../Tag";
 import { BannerStyle, PrecoBanner, Titulo } from "./style";
 import { formatPrices } from "../../utils";
 import { useGetGameQuery } from "../../services/api";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { ButtonLink } from "../Button/style";
-=======
->>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
-=======
-import { ButtonLink } from "../Button/style";
->>>>>>> d97e153 (Commit 3: adicionando produtos ao carrinho.)
-=======
->>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
-=======
-import { ButtonLink } from "../Button/style";
->>>>>>> d97e153 (Commit 3: adicionando produtos ao carrinho.)
 export default function Banner() {
   const {data: game}=  useGetGameQuery()
 

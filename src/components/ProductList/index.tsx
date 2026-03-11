@@ -1,15 +1,7 @@
 import { Container } from "../../globalStyle";
 import Product from "../Product";
 import { ContainerProductList, List, Title } from "./style";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import type { Game } from "../../types";
-=======
-import type { Game } from "../../pages/home";
->>>>>>> b39a825 (Commit 1: instalando dependências do RTK, codificando o services da API e aplicando nos componentes.)
-=======
-import type { Game } from "../../types";
->>>>>>> a987dbf (Commit 3: instalando dependências do Hashlink e atribuindo rotas ao componente Footer.)
 import { formatPrices, getDescription } from "../../utils";
 export type Props = {
   background: "gray" | "black";
