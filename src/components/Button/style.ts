@@ -15,6 +15,7 @@ export const ButtonBanner = styled.button<Props>`
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    
 `
 export const ButtonLink = styled(Link)`
     width: 110px;
@@ -33,22 +34,10 @@ export const ButtonLink = styled(Link)`
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9de898e (Commit 4: aplicando responsividade.)
-    @media(max-width: ${breakPoints.tablet}){
-        top: 520px;
-        left: 0;
-    }
+
     @media(max-width: ${breakPoints.desktop}){
         top: 520px;
         left: 0;
     }
-<<<<<<< HEAD
-=======
->>>>>>> 2c77a71 (Commit 1: UI ok.)
-=======
->>>>>>> 9de898e (Commit 4: aplicando responsividade.)
 
 `

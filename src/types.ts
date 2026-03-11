@@ -30,3 +30,9 @@ export interface FooterLink{
   label: string;
   path: string;
 }
+
+export interface IstallmentOptions{
+  value: number;
+  label:string;
+  
+}

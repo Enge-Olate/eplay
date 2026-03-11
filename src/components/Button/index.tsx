@@ -1,11 +1,12 @@
 import { ButtonBanner, ButtonLink } from "./style";
 export type Props = {
-  type: "button" | "link";
+  type: 'button' | 'link' | 'submit';
   title: string;
   to?: string;
   onClick?: () => void;
   children: string;
   variant?: "primary" | "secondary";
+  disabled?: boolean;
 };
 export default function Button({
   title,
@@ -13,18 +14,26 @@ export default function Button({
   to,
   children,
   onClick,
-  variant = 'primary',
+  variant = "primary",
+  disabled = false,
 }: Props) {
-  if (type === "button") {
+  if (type !== "button" && type !== "submit") {
     return (
-      <ButtonBanner variant={variant} type={type} title={title} onClick={onClick} >
+      <ButtonLink title={title} to={to as string}>
         {children}
-      </ButtonBanner>
+      </ButtonLink>
     );
   }
+
   return (
-    <ButtonLink title={title} to={to as string} type={type}>
+    <ButtonBanner
+      variant={variant}
+      type={type}
+      title={title}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
-    </ButtonLink>
+    </ButtonBanner>
   );
 }
