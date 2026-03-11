@@ -42,28 +42,28 @@ export default function Checkout() {
       confirmEmail: Yup.string()
         .oneOf([Yup.ref("deliveryEmail"), "Os e-mails precisam ser iguais."])
         .required(message),
-      namePersonCard: Yup.string().when((values, schema) =>
+      namePersonCard: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      cpfCard: Yup.string().when((values, schema) =>
+      cpfCard: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      nameCard: Yup.string().when((values, schema) =>
+      nameCard: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      numberCard: Yup.string().when((values, schema) =>
+      numberCard: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      monthCard: Yup.string().when((values, schema) =>
+      monthCard: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      yearCard: Yup.string().when((values, schema) =>
+      yearCard: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      cvv: Yup.string().when((values, schema) =>
+      cvv: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
-      installments: Yup.string().when((values, schema) =>
+      installments: Yup.string().when((_values, schema) =>
         payWithCard ? schema.required(message) : schema,
       ),
 
@@ -108,7 +108,7 @@ export default function Checkout() {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
-                                  
+                <small>{getErrorMessage('email', form.errors.email)}</small>      
               </InputGroup>
               <InputGroup>
                 <label htmlFor="cpf">CPF</label>
@@ -120,20 +120,22 @@ export default function Checkout() {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
+              <small>{getErrorMessage('cpf', form.errors.cpf)}</small>
               </InputGroup>
             </Row>
             <h3 className="margin-top">Dados de entrega-conteúdo digital</h3>
             <Row>
               <InputGroup>
-                <label htmlFor="delivery_email">E-mail</label>
+                <label htmlFor="deliveryEmail">E-mail</label>
                 <input
                   name="deliveryEmail"
-                  id="delivery_email"
+                  id="deliveryEmail"
                   type="email"
                   value={form.values.deliveryEmail}
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
+              <small>{getErrorMessage('deliveryEmail', form.errors.deliveryEmail)}</small>
               </InputGroup>
               <InputGroup>
                 <label htmlFor="comfirmEmail">Confirme o e-mail</label>
@@ -145,6 +147,7 @@ export default function Checkout() {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
+              <small>{getErrorMessage('confirmEmail', form.errors.confirmEmail)}</small>
               </InputGroup>
             </Row>
           </>
@@ -181,6 +184,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                    <small>{getErrorMessage('NamePersonCard ', form.errors.namePersonCard)}</small>
                     </InputGroup>
                     <InputGroup>
                       <label htmlFor="cpfCard">CPF do titular do cartão</label>
@@ -192,6 +196,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                      <small>{getErrorMessage('cpfCard', form.errors.cpfCard)}</small>
                     </InputGroup>
                   </Row>
                   <Row marginTop="16px">
@@ -205,6 +210,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                      <small>{getErrorMessage('nameCard', form.errors.nameCard)}</small>
                     </InputGroup>
                     <InputGroup>
                       <label htmlFor="numberCard">Número do cartão</label>
@@ -216,6 +222,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                      <small>{getErrorMessage('numberCard', form.errors.numberCard)}</small>
                     </InputGroup>
                     <InputGroup maxwidth="140px">
                       <label htmlFor="monthCard">Mês do vencimento</label>
@@ -227,6 +234,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                      <small>{getErrorMessage('monthCard', form.errors.monthCard)}</small>
                     </InputGroup>
                     <InputGroup maxwidth="140px">
                       <label htmlFor="yearCard">Ano de vencimento</label>
@@ -238,6 +246,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                      <small>{getErrorMessage('yearCard', form.errors.yearCard)}</small>
                     </InputGroup>
                     <InputGroup maxwidth="48px">
                       <label htmlFor="cvv">CVV</label>
@@ -249,6 +258,7 @@ export default function Checkout() {
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                       />
+                      <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
                     </InputGroup>
                   </Row>
                   <Row marginTop="24px">
@@ -265,6 +275,7 @@ export default function Checkout() {
                         <option>2X 200.00</option>
                         <option>3X 200.00</option>
                       </select>
+                      <small>{getErrorMessage('installments', form.errors.installments)}</small>
                     </InputGroup>
                   </Row>
                 </>
