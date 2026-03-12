@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Game } from "../types";
+import type { Game, PurchasePayload } from "../types";
 
 
 export const gameApi = createApi({
@@ -33,8 +33,15 @@ export const gameApi = createApi({
         }),
         getGameId: builder.query<Game, string>({
             query: (id) => `jogos/${id}`
-        })
+        }),
+        purchase: builder.mutation<any, Partial<PurchasePayload>>({
+            query: (body) => ({
+                url: 'checkout',
+                method: 'Post',
+                body,
+            })
+        }),
     })
 })
-export const { useGetGameIdQuery, useGetGameQuery, useGetPromoQuery, useGetSoonQuery, useGetActionGamesQuery, useGetEsportsGamesQuery, useGetFightGamesQuery, useGetRpgGamesQuery, useGetSimulacaoGamesQuery, useLazyGetSoonQuery } = gameApi;
+export const {usePurchaseMutation, useGetGameIdQuery, useGetGameQuery, useGetPromoQuery, useGetSoonQuery, useGetActionGamesQuery, useGetEsportsGamesQuery, useGetFightGamesQuery, useGetRpgGamesQuery, useGetSimulacaoGamesQuery, useLazyGetSoonQuery } = gameApi;
 export default gameApi;

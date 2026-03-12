@@ -26,13 +26,47 @@ export type Game = {
   };
 };
 
-export interface FooterLink{
+export interface FooterLink {
   label: string;
   path: string;
-}
+};
 
-export interface IstallmentOptions{
+export interface IstallmentOptions {
   value: number;
-  label:string;
-  
-}
+  label: string;
+
+};
+
+type Product = {
+  id: number;
+  price: number;
+};
+export interface PurchasePayload {
+  products: Product[];
+  billing: {
+    name: string;
+    email: string;
+    document: string;
+  };
+  delivery: {
+    email: string;
+  };
+  payment: {
+    card: {
+      active: boolean;
+      name?: string;
+      number?: string;
+      code?: string;
+
+      owner?: {
+        name: string;
+        document: string;
+      };
+      experies?: {
+        month: string;
+        year: string;
+      };
+    };
+    installments: number;
+  };
+};
