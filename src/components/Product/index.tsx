@@ -22,7 +22,7 @@ export default function Product({
 }: Props) {
   return (
     <Container>
-      <Card to={`/produto/${id}`}>
+      <Card title={`Clique aqui para saber mais sobre o jogo ${title}`} to={`/produto/${id}`}>
         <img src={image} alt={title}/>
         <Infos>
           {

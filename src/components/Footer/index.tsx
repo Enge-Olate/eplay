@@ -1,7 +1,7 @@
 import { HashLink } from "react-router-hash-link";
 import { Container } from "../../globalStyle";
 import type { FooterLink } from "../../types";
-import { actualYear } from "../../utils";
+import { actualYear, quickAccess } from "../../utils";
 import { FooterStyle, DivSection, StackDivs } from "./style";
 export default function Footer() {
   const categorias: FooterLink[] = [
@@ -11,10 +11,6 @@ export default function Footer() {
     { label: "Esportes", path: "/#esportes" },
     { label: "Simulação", path: "/#simulacao" },
   ];
-  const quickAccess = {
-    news: { label: "Promoções", path: "#promocoes" },
-    sales: { label: "Em breve", path: "#em-breve" },
-  } satisfies Record<string, FooterLink>;
   return (
     <FooterStyle>
       <Container>
@@ -24,7 +20,11 @@ export default function Footer() {
             <ul>
               {categorias.map((categoria) => (
                 <li key={categoria.path}>
-                  <HashLink smooth to={`/categories/${categoria.path}`}>
+                  <HashLink
+                    title={`Clique aqui para ver jogos de ${categoria.label}`}
+                    smooth
+                    to={`/categories/${categoria.path}`}
+                  >
                     {categoria.label}
                   </HashLink>
                 </li>
@@ -36,7 +36,21 @@ export default function Footer() {
             <ul>
               {Object.values(quickAccess).map((access) => (
                 <li key={access.path}>
-                  <HashLink to={`/${access.path}`}>{access.label}</HashLink>
+                  {access.path === "/#promocoes" ? (
+                    <HashLink
+                      title={`Clique aqui para aproveitar nossas ${access.label}`}
+                      to={`/${access.path}`}
+                    >
+                      {access.label}
+                    </HashLink>
+                  ) : (
+                    <HashLink
+                      title={`Clique aqui para ver o que está chegando ${access.label}`}
+                      to={`/${access.path}`}
+                    >
+                      {access.label}
+                    </HashLink>
+                  )}
                 </li>
               ))}
             </ul>

@@ -11,8 +11,7 @@ import Footer from "../../components/Footer";
 import { usePurchaseMutation } from "../../services/api";
 export default function Checkout() {
   const [payWithCard, setPayWithCard] = useState(false);
-  const [purchase, { isError, isLoading, data, isSuccess }] =
-    usePurchaseMutation();
+  const [purchase, { data, isSuccess }] = usePurchaseMutation();
   const message: string = "O campo é obrigatório!";
   const form = useFormik({
     initialValues: {
@@ -117,7 +116,8 @@ export default function Checkout() {
             <p>
               É com satisfação que informamos que recebemos seu pedido com
               sucesso! Abaixo estão os detalhes da sua compra: Número do pedido:
-              {data.orderId} Forma de pagamento: {payWithCard? "Cartão de crédito": "Boleto bancário"}
+              {data.orderId} Forma de pagamento:
+              {payWithCard ? "Cartão de crédito" : "Boleto bancário"}
             </p>
             <p className="margin-top">
               Caso tenha optado pelo pagamento via boleto bancário, lembre-se de
