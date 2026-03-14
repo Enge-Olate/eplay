@@ -31,9 +31,10 @@ export interface FooterLink {
   path: string;
 };
 
-export interface IstallmentOptions {
+export interface InstallmentOptions {
   value: number;
-  label: string;
+  label?: string;
+  quantity:number;
 
 };
 

@@ -1,4 +1,4 @@
-import type { FooterLink } from "./types";
+import type { FooterLink, Game } from "./types";
 
 export const formatPrices = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -22,3 +22,11 @@ export const quickAccess = {
     news: { label: "Promoções", path: "#promocoes" },
     sales: { label: "Em breve", path: "#em-breve" },
   } satisfies Record<string, FooterLink>;
+
+export const getTotalPrice = (items:Game[])=>{
+    return items.reduce((amount, valueCurrent)=>{
+      const total = amount += valueCurrent.prices.current;
+      return total;
+    }, 0)
+  };
+

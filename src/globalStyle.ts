@@ -5,7 +5,8 @@ export const cores ={
     preta: '#000',
     cinza: '#333',
     verde: '#10ac84',
-    cinzClaro: '#a3a3a3'
+    cinzClaro: '#a3a3a3',
+    bordaErro: "#ff0000",
 }
 export const breakPoints ={
     tablet: '768px',

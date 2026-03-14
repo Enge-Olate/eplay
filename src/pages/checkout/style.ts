@@ -25,13 +25,15 @@ export const InputGroup = styled.div<InpuGroupProps>`
         display: block;
         font-size: 14px;
     }
-    input{
+    input, select{
         width: 100%;
         padding: 0 8px;
         height: 32px;
         background-color: ${cores.branca};
         border: 1px solid ${cores.branca};
-
+        &.error{
+            border: 1px solid ${cores.bordaErro};
+        }
     }
 `
 export const DivButton = styled.div`
