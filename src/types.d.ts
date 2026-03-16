@@ -1,8 +1,8 @@
-export interface GalleryItem {
+declare interface GalleryItem {
   type: "image" | "video";
   url: string;
 }
-export type Game = {
+declare type Game = {
   id: number;
   name: string;
   description: string;
@@ -26,12 +26,12 @@ export type Game = {
   };
 };
 
-export interface FooterLink {
+declare interface FooterLink {
   label: string;
   path: string;
 };
 
-export interface InstallmentOptions {
+declare interface InstallmentOptions {
   value: number;
   label?: string;
   quantity:number;
@@ -42,7 +42,7 @@ type Product = {
   id: number;
   price: number;
 };
-export interface PurchasePayload {
+declare interface PurchasePayload {
   products: Product[];
   billing: {
     name: string;
@@ -71,3 +71,6 @@ export interface PurchasePayload {
     installments: number;
   };
 };
+declare type GameParams={
+  id: string;
+}

@@ -1,6 +1,5 @@
 import { HashLink } from "react-router-hash-link";
 import { Container } from "../../globalStyle";
-import type { FooterLink } from "../../types";
 import { actualYear, quickAccess } from "../../utils";
 import { FooterStyle, DivSection, StackDivs } from "./style";
 export default function Footer() {

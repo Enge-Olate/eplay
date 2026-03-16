@@ -1,4 +1,3 @@
-import type { FooterLink, Game } from "./types";
 
 export const formatPrices = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {

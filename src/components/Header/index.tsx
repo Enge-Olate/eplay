@@ -6,23 +6,24 @@ import cart from "../../assets/carrinho.svg";
 import type { RootState } from "../../store";
 import { useAppDispatch } from "../../hooks/appDispacth";
 import { open } from "../../store/reducers/cart";
-import type { FooterLink } from "../../types";
 import { HashLink } from "react-router-hash-link";
 
-type Props={
+type Props = {
   title?: string;
-}
-const headerLinks: FooterLink[]=[
-  {label: "Categorias", path:"/categories"},
-  {label: "Novidades", path:"/#em-breve"},
-  {label: "Promoções", path:"/#promocoes"},
-]
-export default function Header({title = "clique aqui para ver o carrinho!"}: Props) {
-    const {items} =useAppSelector((state: RootState)=> state.cart);
-    const dispatch = useAppDispatch();
-    const openCart = ()=>{
-      dispatch(open());
-    }
+};
+const headerLinks: FooterLink[] = [
+  { label: "Categorias", path: "/categories" },
+  { label: "Novidades", path: "/#em-breve" },
+  { label: "Promoções", path: "/#promocoes" },
+];
+export default function Header({
+  title = "clique aqui para ver o carrinho!",
+}: Props) {
+  const { items } = useAppSelector((state: RootState) => state.cart);
+  const dispatch = useAppDispatch();
+  const openCart = () => {
+    dispatch(open());
+  };
   return (
     <HeaderStyle>
       <div>
@@ -31,18 +32,28 @@ export default function Header({title = "clique aqui para ver o carrinho!"}: Pro
         </Link>
         <nav>
           <ul>
-            {headerLinks.map((link)=>(
+            {headerLinks.map((link) => (
               <li key={link.path}>
-                <HashLink title={`Dê um bizu em nossas ${link.label}!`} smooth to={link.path}>{link.label}</HashLink>
+                <HashLink
+                  title={`Dê um bizu em nossas ${link.label}!`}
+                  smooth
+                  to={link.path}
+                >
+                  {link.label}
+                </HashLink>
               </li>
             ))}
           </ul>
         </nav>
       </div>
       <ul>
-        <li>{items.length} - Produto(s)</li>
         <li>
-          <a onClick={openCart} title={title}>
+          <a role="button" onClick={openCart} title={title}>
+            {items.length} - Produto(s)
+          </a>
+        </li>
+        <li>
+          <a role="button" onClick={openCart} title={title}>
             <img src={cart} alt="Carrinho de compras" />
           </a>
         </li>
@@ -50,4 +61,3 @@ export default function Header({title = "clique aqui para ver o carrinho!"}: Pro
     </HeaderStyle>
   );
 }
-

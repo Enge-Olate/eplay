@@ -6,32 +6,10 @@ export interface GalleryItem {
   type: "image" | "video";
   url: string;
 }
-export type Game = {
-  id: number;
-  name: string;
-  description: string;
-  release_date?: string;
-  prices: {
-    discount: number;
-    old: number;
-    current: number;
-  };
-  details: {
-    category: string;
-    system: string;
-    developer: string;
-    publisher: string;
-    languages: string[];
-  };
-  media: {
-    thumbnail: string;
-    cover: string;
-    gallery: GalleryItem[];
-  };
-};
+
 export default function Home() {
-  const { data: gamesPromo } = useGetPromoQuery();
-  const { data: gamesSoon } = useGetSoonQuery();
+  const { data: gamesPromo, isLoading:isLoadingPromo} = useGetPromoQuery();
+  const { data: gamesSoon, isLoading:isLoadingSoon} = useGetSoonQuery();
 
   return (
     <>
@@ -41,12 +19,14 @@ export default function Home() {
         games={gamesPromo}
         title="Promoções"
         background="gray"
+        isLoading={isLoadingPromo}
       />
       <ProductsList
         id="em-breve"
         games={gamesSoon}
         title="Em breve"
         background="black"
+        isLoading={isLoadingSoon}
       />
       <Footer />
     </>

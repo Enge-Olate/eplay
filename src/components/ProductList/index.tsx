@@ -1,16 +1,16 @@
 import { Container } from "../../globalStyle";
 import Product from "../Product";
 import { ContainerProductList, List, Title } from "./style";
-import type { Game } from "../../types";
 import { formatPrices, getDescription } from "../../utils";
 export type Props = {
   background: "gray" | "black";
   title: string;
   games?: Game[];
   id?:string;
+  isLoading:boolean;
 };
 
-export default function ProductsList({id, title, background, games }: Props) {
+export default function ProductsList({id, title, background, games, isLoading }: Props) {
   const getGameTags = (game: Game) => {
     const tags = [];
     if (game.release_date) {
@@ -24,9 +24,9 @@ export default function ProductsList({id, title, background, games }: Props) {
     }
     return tags;
   };
-
+  
   return (
-    <ContainerProductList id={id} title={title} background={background} games={games}>
+    <ContainerProductList id={id} title={title} background={background} games={games} isLoading={isLoading} >
       <Container>
         <Title>{title}</Title>
         <List>

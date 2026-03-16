@@ -1,5 +1,4 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Game } from "../../types";
 interface cartState{
     items: Game[];
     isOpen: boolean;

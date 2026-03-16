@@ -98,6 +98,7 @@ export const ModalContent = styled.div`
     }
     img{
         cursor: pointer;
+        object-fit: cover;
         
     }
     >img, iframe{

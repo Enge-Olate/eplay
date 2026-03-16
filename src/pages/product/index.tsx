@@ -1,20 +1,18 @@
 import { useParams } from "react-router-dom";
 import Hero from "../../components/Hero";
 import Footer from "../../components/Footer";
-import { Container } from "../../globalStyle";
 import Section from "../../components/Section";
 import Gallery from "../../components/Gallery";
 import { useGetGameIdQuery } from "../../services/api";
+import Loader from "../../components/Loaders";
 export function ProductGame() {
-  const { id } = useParams();
-  const {data: game} = useGetGameIdQuery(id!);
+  const { id } = useParams() as GameParams;
+  const {data: game, isLoading} = useGetGameIdQuery(id);
   
-  if (!game) {
+  if (isLoading || !game) {
     return (
       <>
-        <Container>
-          <h3>Carregando...</h3>
-        </Container>
+        <Loader/>
         <Footer />
       </>
     );

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { Navigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
@@ -12,13 +13,12 @@ import Footer from "../../components/Footer";
 import { usePurchaseMutation } from "../../services/api";
 import { useAppSelector } from "../../hooks/appSelector";
 import type { RootState } from "../../store";
-import type { InstallmentOptions } from "../../types";
 import { formatPrices, getTotalPrice } from "../../utils";
 
 export default function Checkout() {
   const [payWithCard, setPayWithCard] = useState(false);
   const [installments, setInstallments] = useState<InstallmentOptions[]>([]);
-  const [purchase, { data, isSuccess }] = usePurchaseMutation();
+  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation();
   const { items } = useAppSelector((state: RootState) => state.cart);
   const message: string = "O campo é obrigatório!";
   const form = useFormik({
@@ -118,7 +118,7 @@ export default function Checkout() {
 
   const totalPrice = getTotalPrice(items);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+   
   useEffect(() => {
     const calculateInstallments = () => {
       const installments: InstallmentOptions[] = [];
@@ -407,8 +407,9 @@ export default function Checkout() {
                 title="Clique aqui para finalizar a compra"
                 type="submit"
                 onClick={form.handleSubmit}
+                disabled={isLoading}
               >
-                Finalizar compra
+                {isLoading?"Finalizando compra...": "Finalizar compra"}
               </Button>
             </DivButton>
           </Container>

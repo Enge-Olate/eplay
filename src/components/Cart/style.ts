@@ -46,6 +46,11 @@ export const Sidebar = styled.aside`
         max-width: 328px;
         width: 100vw;
     }
+    >p{
+        font-size:14px;
+        line-height: 22px;
+        color: ${cores.branca};
+    }
 `
 export const CartProduct=styled.li`
     padding: 8px 0;

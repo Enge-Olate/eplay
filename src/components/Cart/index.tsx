@@ -7,6 +7,7 @@ import { formatPrices, getTotalPrice } from "../../utils";
 import Button from "../Button";
 import { Tag } from "../Tag";
 import { CartContainer, CartInfoPay, CartProduct, Overlay, Sidebar } from "./style";
+import Loader from "../Loaders";
 export default function Cart() {
   const {isOpen, items} = useAppSelector((state: RootState)=> state.cart);
   const dispatch = useAppDispatch();
@@ -30,9 +31,11 @@ export default function Cart() {
     <CartContainer className={isOpen ? 'is-open': ''} >
       <Overlay onClick={()=> closeCart()}/>
       <Sidebar>
-        <ul>
+        {items.length > 0 ?(
+          <>
+          <ul>
           {items.map((item)=>(
-          <CartProduct key={item.id}>
+            <CartProduct key={item.id}>
             <img src={item.media.thumbnail} alt={item.name} />
             <div>
               <h3>{item.name}</h3>
@@ -54,6 +57,13 @@ export default function Cart() {
             Continuar com compra
           </Button>
         </CartInfoPay>
+          </>
+        ):(
+          <>
+          <p>Adicione jogos para continuar!</p>
+          <Loader/>
+          </>
+        )}
       </Sidebar>
     </CartContainer>
   );

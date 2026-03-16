@@ -51,6 +51,7 @@ export  const HeaderStyle = styled.header`
     }
     a{
         color: ${cores.branca};
+        font-weight: bold;
         text-decoration: none;
         cursor: pointer;
     }    

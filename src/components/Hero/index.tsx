@@ -2,7 +2,6 @@ import { Container } from "../../globalStyle";
 import { useAppDispatch } from "../../hooks/appDispacth";
 import { add, open,  } from "../../store/reducers/cart";
 import { formatPrices } from "../../utils";
-import type { Game } from "../../types";
 import { BannerHero, Infos } from "./style";
 import { ButtonBanner } from "../Button/style";
 import { Tag } from "../Tag";

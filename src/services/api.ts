@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Game, PurchasePayload } from "../types";
-
+type PurchaseRes={
+    orderId: string;
+}
 
 export const gameApi = createApi({
     baseQuery: fetchBaseQuery({
@@ -34,8 +35,7 @@ export const gameApi = createApi({
         getGameId: builder.query<Game, string>({
             query: (id) => `jogos/${id}`
         }),
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        purchase: builder.mutation<any, Partial<PurchasePayload>>({
+        purchase: builder.mutation<PurchaseRes, PurchasePayload>({
             query: (body) => ({
                 url: 'checkout',
                 method: 'Post',

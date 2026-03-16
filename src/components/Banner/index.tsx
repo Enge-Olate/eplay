@@ -4,14 +4,13 @@ import { BannerStyle, PrecoBanner, Titulo } from "./style";
 import { formatPrices } from "../../utils";
 import { useGetGameQuery } from "../../services/api";
 import { ButtonLink } from "../Button/style";
+import Loader from "../Loaders";
 export default function Banner() {
-  const {data: game}=  useGetGameQuery()
+  const {data: game, isLoading}=  useGetGameQuery()
 
-  if (!game) {
+  if (!game || isLoading) {
     return (
-      <Container>
-        <h4>Carregando...</h4>
-      </Container>
+      <Loader/>
     );
   }
   return (
