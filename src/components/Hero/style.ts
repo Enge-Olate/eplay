@@ -38,6 +38,7 @@ export const BannerHero = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+    
   }
 
 `

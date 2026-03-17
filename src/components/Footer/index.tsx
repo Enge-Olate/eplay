@@ -2,6 +2,8 @@ import { HashLink } from "react-router-hash-link";
 import { Container } from "../../globalStyle";
 import { actualYear, quickAccess } from "../../utils";
 import { FooterStyle, DivSection, StackDivs } from "./style";
+import { useAppDispatch } from "../../hooks/appDispacth";
+import { close } from "../../store/reducers/cart";
 export default function Footer() {
   const categorias: FooterLink[] = [
     { label: "RPG", path: "/#rpg" },
@@ -10,6 +12,10 @@ export default function Footer() {
     { label: "Esportes", path: "/#esportes" },
     { label: "Simulação", path: "/#simulacao" },
   ];
+  const dispatch = useAppDispatch();
+  const closeCart = () => {
+    dispatch(close());
+  };
   return (
     <FooterStyle>
       <Container>
@@ -23,6 +29,7 @@ export default function Footer() {
                     title={`Clique aqui para ver jogos de ${categoria.label}`}
                     smooth
                     to={`/categories/${categoria.path}`}
+                    onClick={() => closeCart()}
                   >
                     {categoria.label}
                   </HashLink>
@@ -39,6 +46,7 @@ export default function Footer() {
                     <HashLink
                       title={`Clique aqui para aproveitar nossas ${access.label}`}
                       to={`/${access.path}`}
+                      onClick={() => closeCart()}
                     >
                       {access.label}
                     </HashLink>
@@ -46,6 +54,7 @@ export default function Footer() {
                     <HashLink
                       title={`Clique aqui para ver o que está chegando ${access.label}`}
                       to={`/${access.path}`}
+                      onClick={() => closeCart()}
                     >
                       {access.label}
                     </HashLink>

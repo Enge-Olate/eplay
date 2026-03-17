@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
+import { IMaskInput } from "react-imask";
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import { Container } from "../../globalStyle";
@@ -14,12 +15,15 @@ import { usePurchaseMutation } from "../../services/api";
 import { useAppSelector } from "../../hooks/appSelector";
 import type { RootState } from "../../store";
 import { formatPrices, getTotalPrice } from "../../utils";
+import { useAppDispatch } from "../../hooks/appDispacth";
+import { clear } from "../../store/reducers/cart";
 
 export default function Checkout() {
   const [payWithCard, setPayWithCard] = useState(false);
   const [installments, setInstallments] = useState<InstallmentOptions[]>([]);
   const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation();
   const { items } = useAppSelector((state: RootState) => state.cart);
+  const dispatch = useAppDispatch();
   const message: string = "O campo é obrigatório!";
   const form = useFormik({
     initialValues: {
@@ -99,12 +103,10 @@ export default function Checkout() {
           },
           installments: values.installments,
         },
-        products: [
-          {
-            id: 1,
-            price: 200,
-          },
-        ],
+        products: items.map((item)=>({
+          id:item.id,
+          price: item.prices.current
+        }))
       });
     },
   });
@@ -134,9 +136,15 @@ export default function Checkout() {
     setInstallments(calculateInstallments());
   }, [totalPrice]);
 
-  if (items.length === 0) {
+  useEffect(()=>{
+    if(isSuccess){
+      dispatch(clear());
+    }
+  },[dispatch, isSuccess])
+  if (items.length === 0 && !isSuccess) {
     return <Navigate to={"/"} />;
   }
+  
 
   return (
     <>
@@ -204,10 +212,13 @@ export default function Checkout() {
                 </InputGroup>
                 <InputGroup>
                   <label htmlFor="cpf">CPF</label>
-                  <input
+                  <IMaskInput
                     name="cpf"
                     id="cpf"
                     type="text"
+                    mask="000.000.000-00"
+                    unmask={true}
+                    inputMode="numeric"
                     value={form.values.cpf}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
@@ -286,10 +297,12 @@ export default function Checkout() {
                         <label htmlFor="cpfCard">
                           CPF do titular do cartão
                         </label>
-                        <input
+                        <IMaskInput
                           name="cpfCard"
                           type="text"
                           id="cpfCard"
+                          mask="000.000.000-00"
+                          inputMode="numeric"
                           value={form.values.cpfCard}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
@@ -312,11 +325,13 @@ export default function Checkout() {
                       </InputGroup>
                       <InputGroup>
                         <label htmlFor="numberCard">Número do cartão</label>
-                        <input
+                        <IMaskInput
                           name="numberCard"
                           value={form.values.numberCard}
                           type="text"
                           id="numberCard"
+                          mask="0000 0000 0000 0000"
+                          inputMode="numeric"
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
@@ -326,11 +341,13 @@ export default function Checkout() {
                       </InputGroup>
                       <InputGroup maxwidth="140px">
                         <label htmlFor="monthCard">Mês do vencimento</label>
-                        <input
+                        <IMaskInput
                           name="monthCard"
                           value={form.values.monthCard}
                           type="month"
                           id="monthCard"
+                          mask="00"
+                          inputMode="numeric"
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
@@ -340,11 +357,13 @@ export default function Checkout() {
                       </InputGroup>
                       <InputGroup maxwidth="140px">
                         <label htmlFor="yearCard">Ano de vencimento</label>
-                        <input
+                        <IMaskInput
                           name="yearCard"
                           value={form.values.yearCard}
                           type="year"
                           id="yearCard"
+                          mask="0000"
+                          inputMode="numeric"
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={checkInputError("yearCard") ? "error" : ""}
@@ -352,11 +371,13 @@ export default function Checkout() {
                       </InputGroup>
                       <InputGroup maxwidth="48px">
                         <label htmlFor="cvv">CVV</label>
-                        <input
+                        <IMaskInput
                           name="cvv"
                           value={form.values.cvv}
                           type="text"
                           id="cvv"
+                          mask="000"
+                          inputMode="numeric"
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={checkInputError("cvv") ? "error" : ""}

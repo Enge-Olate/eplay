@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { cores } from "../../globalStyle";
+import { breakPoints, cores } from "../../globalStyle";
 type TabButton={
     isActive?: boolean;
 }
@@ -15,6 +15,10 @@ export const Row = styled.div<RowProps>`
     align-items: flex-end;
     column-gap: 24px;
     margin-top: ${(props)=> props.marginTop || '0'};
+    @media(max-width: ${breakPoints.tablet}){
+        display: block;
+        
+    }
 `
 
 export const InputGroup = styled.div<InpuGroupProps>`
@@ -34,6 +38,9 @@ export const InputGroup = styled.div<InpuGroupProps>`
         &.error{
             border: 1px solid ${cores.bordaErro};
         }
+    }
+    @media(max-width: ${breakPoints.tablet}){
+        margin-top: 16px;
     }
 `
 export const DivButton = styled.div`
@@ -55,6 +62,10 @@ export const TabButton = styled.button<TabButton>`
     cursor: pointer;
     img{
         margin-right: 8px;
+    }
+    @media(max-width: ${breakPoints.tablet}){
+        width: 100%;
+        margin-bottom: 8px;
     }
 
 `
